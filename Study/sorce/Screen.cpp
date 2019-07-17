@@ -14,4 +14,16 @@ namespace MSLib {
 	void Screen::SetFullScreen(bool isFull) {
 		isFullScreen = isFull;
 	}
+
+	int Screen::GetWidth() {
+		return width;
+	}
+
+	int Screen::GetHeight() {
+		return height;
+	}
+
+	bool Screen::GetIsFullScreen() {
+		return isFullScreen;
+	}
 }
