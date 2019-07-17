@@ -1,6 +1,6 @@
 #include <Windows.h>
 #include <tchar.h>
-#include "ApplicationBase.h"
+#include "MSLib/Application/ApplicationBase.h"
 
 MSLib::ApplicationBase* pApp = nullptr;
 

@@ -143,13 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="sorce\ApplicationBase.h" />
-    <ClInclude Include="sorce\Screen.h" />
+    <ClCompile Include="sorce\main.cpp" />
+    <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp" />
+    <ClCompile Include="sorce\MSLib\Screen\Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sorce\ApplicationBase.cpp" />
-    <ClCompile Include="sorce\main.cpp" />
-    <ClCompile Include="sorce\Screen.cpp" />
+    <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h" />
+    <ClInclude Include="sorce\MSLib\Screen\Screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

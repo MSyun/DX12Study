@@ -1,5 +1,5 @@
 #include "ApplicationBase.h"
-#include "Screen.h"
+#include "../Screen/Screen.h"
 #include <tchar.h>
 
 

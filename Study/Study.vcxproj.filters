@@ -13,24 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sorce\Screen.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sorce\ApplicationBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
+    <Filter Include="ソース ファイル\MSLib">
+      <UniqueIdentifier>{e6fb715a-c500-4210-8bf5-eec6fa5a6523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Application">
+      <UniqueIdentifier>{654edf26-1bfc-4465-8070-b165b1b2f953}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Screen">
+      <UniqueIdentifier>{52f4c4be-9287-4c2b-beeb-803c8e183edc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="sorce\Screen.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
+      <Filter>ソース ファイル\MSLib\Application</Filter>
     </ClCompile>
-    <ClCompile Include="sorce\ApplicationBase.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="sorce\MSLib\Screen\Screen.cpp">
+      <Filter>ソース ファイル\MSLib\Screen</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h">
+      <Filter>ソース ファイル\MSLib\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Screen\Screen.h">
+      <Filter>ソース ファイル\MSLib\Screen</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
