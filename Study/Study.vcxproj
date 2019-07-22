@@ -145,10 +145,16 @@
   <ItemGroup>
     <ClCompile Include="sorce\main.cpp" />
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp" />
+    <ClCompile Include="sorce\MSLib\Application\DXApplication.cpp" />
+    <ClCompile Include="sorce\MSLib\DirectX\DXBase.cpp" />
+    <ClCompile Include="sorce\MSLib\DirectX\Ver12\DX12Base.cpp" />
     <ClCompile Include="sorce\MSLib\Screen\Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h" />
+    <ClInclude Include="sorce\MSLib\Application\DXApplication.h" />
+    <ClInclude Include="sorce\MSLib\DirectX\DXBase.h" />
+    <ClInclude Include="sorce\MSLib\DirectX\Ver12\DX12Base.h" />
     <ClInclude Include="sorce\MSLib\Screen\Screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

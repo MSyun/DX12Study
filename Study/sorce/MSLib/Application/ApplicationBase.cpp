@@ -9,9 +9,6 @@ namespace MSLib {
 
 	constexpr LPCTSTR ClassName = _T("ClassName");
 
-	HWND ApplicationBase::hWnd = NULL;
-
-
 	ApplicationBase::ApplicationBase(
 		int width,
 		int height,
@@ -182,6 +179,10 @@ namespace MSLib {
 	}
 
 	void ApplicationBase::End() {
-		DestroyWindow(hWnd);
+		DestroyWindow(pApp->GetHWND());
+	}
+
+	inline HWND ApplicationBase::GetHWND() {
+		return hWnd;
 	}
 }

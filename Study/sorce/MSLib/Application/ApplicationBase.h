@@ -12,7 +12,7 @@ namespace MSLib {
 		ApplicationBase(
 			int width = 600,
 			int height = 480,
-			bool isWndow = false);
+			bool isWindow = true);
 		virtual ~ApplicationBase();
 
 		bool Run(HINSTANCE _hInstance);
@@ -31,6 +31,8 @@ namespace MSLib {
 
 		static void End();
 
+		inline HWND GetHWND();
+
 	private:
 		bool RegistWndClass();
 		bool CreateMainWnd();
@@ -46,6 +48,6 @@ namespace MSLib {
 		HINSTANCE hInstance;
 		WNDCLASSEX wndClassEx;
 		CREATESTRUCT createStruct;
-		static HWND hWnd;
+		HWND hWnd;
 	};
 }

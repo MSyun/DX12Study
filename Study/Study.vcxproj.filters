@@ -22,16 +22,34 @@
     <Filter Include="ソース ファイル\MSLib\Screen">
       <UniqueIdentifier>{52f4c4be-9287-4c2b-beeb-803c8e183edc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\DirectX">
+      <UniqueIdentifier>{501a3b05-e6dc-4691-8148-b4d8a9ca67cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\DirectX\Ver12">
+      <UniqueIdentifier>{f6a45e5c-a697-42a1-a46b-b8e32ff99df7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Application\DirectX">
+      <UniqueIdentifier>{e0c76c9a-5581-45d4-8780-d9a741c23ba0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sorce\main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
       <Filter>ソース ファイル\MSLib\Application</Filter>
     </ClCompile>
     <ClCompile Include="sorce\MSLib\Screen\Screen.cpp">
       <Filter>ソース ファイル\MSLib\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\DirectX\DXBase.cpp">
+      <Filter>ソース ファイル\MSLib\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\DirectX\Ver12\DX12Base.cpp">
+      <Filter>ソース ファイル\MSLib\DirectX\Ver12</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Application\DXApplication.cpp">
+      <Filter>ソース ファイル\MSLib\Application\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\main.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +58,15 @@
     </ClInclude>
     <ClInclude Include="sorce\MSLib\Screen\Screen.h">
       <Filter>ソース ファイル\MSLib\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\DirectX\DXBase.h">
+      <Filter>ソース ファイル\MSLib\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\DirectX\Ver12\DX12Base.h">
+      <Filter>ソース ファイル\MSLib\DirectX\Ver12</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Application\DXApplication.h">
+      <Filter>ソース ファイル\MSLib\Application\DirectX</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
