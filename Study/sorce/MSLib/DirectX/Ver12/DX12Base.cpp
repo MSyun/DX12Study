@@ -80,18 +80,21 @@ namespace MSLib {
 			return E_FAIL;
 		}
 
-		hr = m_pDevice->CreateCommandAllocator(
-			D3D12_COMMAND_LIST_TYPE_DIRECT,
-			IID_PPV_ARGS(m_pCmdAllocator.GetAddressOf()));
-		if (FAILED(hr)) {
-			OutputDebugString(_T("Failed : CreateCommandAllocator"));
-			return E_FAIL;
+		for (int i = 0; i < SwapChainBufferCount; ++i)
+		{
+			hr = m_pDevice->CreateCommandAllocator(
+				D3D12_COMMAND_LIST_TYPE_DIRECT,
+				IID_PPV_ARGS(m_pCmdAllocator[i].GetAddressOf()));
+			if (FAILED(hr)) {
+				OutputDebugString(_T("Failed : CreateCommandAllocator"));
+				return E_FAIL;
+			}
 		}
 
 		hr = m_pDevice->CreateCommandList(
 			0,
 			D3D12_COMMAND_LIST_TYPE_DIRECT,
-			m_pCmdAllocator.Get(),
+			m_pCmdAllocator[0].Get(),
 			nullptr,
 			IID_PPV_ARGS(m_pCmdList.GetAddressOf()));
 		if (FAILED(hr)) {
@@ -196,8 +199,6 @@ namespace MSLib {
 		}
 
 		pSwapChain.As(&m_pSwapChain);
-
-		m_FrameIndex = m_pSwapChain->GetCurrentBackBufferIndex();
 
 		return hr;
 	}
@@ -333,6 +334,8 @@ namespace MSLib {
 	}
 
 	HRESULT DX12Base::Step() {
+		Update();
+		Render();
 		return S_OK;
 	}
 
@@ -341,7 +344,55 @@ namespace MSLib {
 	}
 
 	void DX12Base::Render() {
+		// スワップチェーンイメージ内インデックス取得
+		m_FrameIndex = m_pSwapChain->GetCurrentBackBufferIndex();
 
+		// コマンドアロケータとコマンドリストをリセット
+		m_pCmdAllocator[m_FrameIndex]->Reset();
+		m_pCmdList->Reset(m_pCmdAllocator[m_FrameIndex].Get(), nullptr);
+
+		// 描画コマンドを積んでいく処理
+		// この後のクリア処理など
+
+		// リソースバリアの設定
+		D3D12_RESOURCE_BARRIER barrier;
+		ZeroMemory(&barrier, sizeof(barrier));
+		barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+		barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		barrier.Transition.pResource = m_pRenderTarget[m_FrameIndex].Get();
+		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+		barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		m_pCmdList->ResourceBarrier(1, &barrier);
+
+		// レンダーターゲットのハンドルを取得
+		auto handleRTV = m_pRtvHeap->GetCPUDescriptorHandleForHeapStart();
+		auto handleDSV = m_pDsvHeap->GetCPUDescriptorHandleForHeapStart();
+		handleRTV.ptr += (m_FrameIndex * m_RtvDescriptorSize);
+
+		// レンダーターゲットビューをクリア
+		const float clearColor[] = { 0.1f, 0.25f, 0.5f, 1.0f };
+		m_pCmdList->ClearRenderTargetView(handleRTV, clearColor, 0, nullptr);
+
+		// 深度ステンシルビューをクリア
+		m_pCmdList->ClearDepthStencilView(handleDSV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
+
+		// リソースバリアの設定
+		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
+		m_pCmdList->ResourceBarrier(1, &barrier);
+
+		// 描画コマンドの積み処理終了
+		m_pCmdList->Close();
+
+		// コマンド実行
+		ID3D12CommandList* lists[] = { m_pCmdList.Get() };
+		pCmdQueue->ExecuteCommandLists(_countof(lists), lists);
+
+		// 表示する
+		m_pSwapChain->Present(1, 0);
+
+		WaitForGpu();
 	}
 
 	HRESULT DX12Base::Release() {
@@ -372,6 +423,7 @@ namespace MSLib {
 		const UINT64 fence = m_FenceValue;
 		auto hr = pCmdQueue->Signal(m_pFence.Get(), fence);
 		if (FAILED(hr)) {
+			OutputDebugString(_T("Failed : ID3D12CommandQueue::Single()"));
 			return;
 		}
 		m_FenceValue++;
@@ -380,6 +432,7 @@ namespace MSLib {
 		if (m_pFence->GetCompletedValue() < fence) {
 			hr = m_pFence->SetEventOnCompletion(fence, m_FenceEvent);
 			if (FAILED(hr)) {
+				OutputDebugString(_T("Failed : ID3D12Fence::SetEventOnCompletation"));
 				return;
 			}
 
@@ -387,6 +440,6 @@ namespace MSLib {
 		}
 
 		// フレームバッファ番号を更新
-//		m_FrameIndex = m_pSwapChain.Get
+		m_FrameIndex = m_pSwapChain->GetCurrentBackBufferIndex();
 	}
 }

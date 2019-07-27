@@ -62,7 +62,7 @@ namespace MSLib {
 		ComPtr<ID3D12Device> m_pDevice;
 		ComPtr<ID3D12Resource> m_pRenderTarget[SwapChainBufferCount];
 		ComPtr<ID3D12Resource> m_pDepthStencil;
-		ComPtr<ID3D12CommandAllocator> m_pCmdAllocator;
+		ComPtr<ID3D12CommandAllocator> m_pCmdAllocator[SwapChainBufferCount];
 		ComPtr<ID3D12CommandQueue> pCmdQueue;
 		ComPtr<ID3D12DescriptorHeap> m_pRtvHeap;
 		ComPtr<ID3D12DescriptorHeap> m_pDsvHeap;
