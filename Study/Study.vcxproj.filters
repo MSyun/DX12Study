@@ -31,6 +31,9 @@
     <Filter Include="ソース ファイル\MSLib\Application\DirectX">
       <UniqueIdentifier>{e0c76c9a-5581-45d4-8780-d9a741c23ba0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Time">
+      <UniqueIdentifier>{c31e25b1-4c9e-4f0e-9cde-eb5426e923bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="sorce\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="sorce\MSLib\Time\Time.cpp">
+      <Filter>ソース ファイル\MSLib\Time</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="sorce\MSLib\Application\DXApplication.h">
       <Filter>ソース ファイル\MSLib\Application\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Time\Time.h">
+      <Filter>ソース ファイル\MSLib\Time</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

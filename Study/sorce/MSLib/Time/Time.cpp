@@ -1,5 +1,7 @@
 #include "Time.h"
 
+#pragma comment(lib, "winmm.lib")
+
 namespace MSLib {
 	namespace System {
 		DWORD Time::currentFrameRate = 0;

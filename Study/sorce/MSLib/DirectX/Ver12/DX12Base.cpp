@@ -114,12 +114,6 @@ namespace MSLib {
 
 		SettingViewport(&m_Viewport);
 
-		// シザー矩形を設定
-		m_ScissorRect.left = 0;
-		m_ScissorRect.right = Screen::GetWidth();
-		m_ScissorRect.top = 0;
-		m_ScissorRect.bottom = Screen::GetHeight();
-
 		return S_OK;
 	}
 
@@ -333,6 +327,41 @@ namespace MSLib {
 		viewport->MaxDepth = 1.0f;
 	}
 
+	void DX12Base::BeginResourceBarrier() {
+		D3D12_RESOURCE_BARRIER barrier;
+		ZeroMemory(&barrier, sizeof(barrier));
+		barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+		barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		barrier.Transition.pResource = m_pRenderTarget[m_FrameIndex].Get();
+		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+		barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		m_pCmdList->ResourceBarrier(1, &barrier);
+	}
+
+	void DX12Base::EndResourceBarrier() {
+		D3D12_RESOURCE_BARRIER barrier;
+		ZeroMemory(&barrier, sizeof(barrier));
+		barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+		barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		barrier.Transition.pResource = m_pRenderTarget[m_FrameIndex].Get();
+		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
+		barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+		m_pCmdList->ResourceBarrier(1, &barrier);
+	}
+
+	void DX12Base::ClearRenderTargetView(const float* clearColor) {
+		auto handleRTV = m_pRtvHeap->GetCPUDescriptorHandleForHeapStart();
+		handleRTV.ptr += (m_FrameIndex * m_RtvDescriptorSize);
+		m_pCmdList->ClearRenderTargetView(handleRTV, clearColor, 0, nullptr);
+	}
+
+	void DX12Base::ClearDepthStencilView(float depth, UINT8 stencil) {
+		auto handleDSV = m_pDsvHeap->GetCPUDescriptorHandleForHeapStart();
+		m_pCmdList->ClearDepthStencilView(handleDSV, D3D12_CLEAR_FLAG_DEPTH, depth, stencil, 0, nullptr);
+	}
+
 	HRESULT DX12Base::Step() {
 		Update();
 		Render();
@@ -351,36 +380,13 @@ namespace MSLib {
 		m_pCmdAllocator[m_FrameIndex]->Reset();
 		m_pCmdList->Reset(m_pCmdAllocator[m_FrameIndex].Get(), nullptr);
 
-		// 描画コマンドを積んでいく処理
-		// この後のクリア処理など
+		BeginResourceBarrier();
 
-		// リソースバリアの設定
-		D3D12_RESOURCE_BARRIER barrier;
-		ZeroMemory(&barrier, sizeof(barrier));
-		barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-		barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-		barrier.Transition.pResource = m_pRenderTarget[m_FrameIndex].Get();
-		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
-		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-		barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_FLAG_NONE;
-		m_pCmdList->ResourceBarrier(1, &barrier);
-
-		// レンダーターゲットのハンドルを取得
-		auto handleRTV = m_pRtvHeap->GetCPUDescriptorHandleForHeapStart();
-		auto handleDSV = m_pDsvHeap->GetCPUDescriptorHandleForHeapStart();
-		handleRTV.ptr += (m_FrameIndex * m_RtvDescriptorSize);
-
-		// レンダーターゲットビューをクリア
 		const float clearColor[] = { 0.1f, 0.25f, 0.5f, 1.0f };
-		m_pCmdList->ClearRenderTargetView(handleRTV, clearColor, 0, nullptr);
+		ClearRenderTargetView(clearColor);
+		ClearDepthStencilView(1.0f, 0);
 
-		// 深度ステンシルビューをクリア
-		m_pCmdList->ClearDepthStencilView(handleDSV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
-
-		// リソースバリアの設定
-		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
-		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
-		m_pCmdList->ResourceBarrier(1, &barrier);
+		EndResourceBarrier();
 
 		// 描画コマンドの積み処理終了
 		m_pCmdList->Close();

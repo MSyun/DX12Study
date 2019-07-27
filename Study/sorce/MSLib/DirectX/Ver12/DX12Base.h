@@ -38,6 +38,11 @@ namespace MSLib {
 		virtual void SettingDepthStencilViewDesc(D3D12_DEPTH_STENCIL_VIEW_DESC* desc);
 		virtual void SettingViewport(D3D12_VIEWPORT* viewport);
 
+		virtual void BeginResourceBarrier();
+		virtual void EndResourceBarrier();
+		virtual void ClearRenderTargetView(const float* clearColor);
+		virtual void ClearDepthStencilView(float depth, UINT8 stencil);
+
 	private:
 		void WaitForGpu();
 
@@ -57,7 +62,6 @@ namespace MSLib {
 
 	protected:
 		D3D12_VIEWPORT m_Viewport;
-		D3D12_RECT m_ScissorRect;
 		ComPtr<IDXGISwapChain3> m_pSwapChain;
 		ComPtr<ID3D12Device> m_pDevice;
 		ComPtr<ID3D12Resource> m_pRenderTarget[SwapChainBufferCount];
