@@ -34,6 +34,15 @@
     <Filter Include="ソース ファイル\MSLib\Time">
       <UniqueIdentifier>{c31e25b1-4c9e-4f0e-9cde-eb5426e923bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Mesh">
+      <UniqueIdentifier>{7c3e8478-fdf9-483a-8adf-85b2121554ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Mesh\Quad">
+      <UniqueIdentifier>{0853685c-f61d-43d9-bab4-1c4e1f5a89d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Shader">
+      <UniqueIdentifier>{b213df9b-49a8-4b65-911d-6311429b52bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -57,6 +66,9 @@
     <ClCompile Include="sorce\MSLib\Time\Time.cpp">
       <Filter>ソース ファイル\MSLib\Time</Filter>
     </ClCompile>
+    <ClCompile Include="sorce\MSLib\Mesh\Quad\Quad.cpp">
+      <Filter>ソース ファイル\MSLib\Mesh\Quad</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h">
@@ -76,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="sorce\MSLib\Time\Time.h">
       <Filter>ソース ファイル\MSLib\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Mesh\Quad\Quad.h">
+      <Filter>ソース ファイル\MSLib\Mesh\Quad</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
