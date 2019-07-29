@@ -43,6 +43,33 @@
     <Filter Include="ソース ファイル\MSLib\Shader">
       <UniqueIdentifier>{b213df9b-49a8-4b65-911d-6311429b52bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math">
+      <UniqueIdentifier>{201f8fba-0505-4e60-ac99-3e13336e7b7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Vector">
+      <UniqueIdentifier>{2403dc15-1621-4698-a152-b3be0402fd5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Vector\Vector2">
+      <UniqueIdentifier>{0af01981-3d39-4349-aa25-3348640f7a85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Vector\Vector3">
+      <UniqueIdentifier>{1cd9984d-3515-4a89-b277-708ef5a1a8a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Vector\Vector4">
+      <UniqueIdentifier>{ca763378-a22d-4191-a0ee-08dc086875d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Matrix">
+      <UniqueIdentifier>{99500352-cf7b-4931-bbaf-78c4d042618b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Transform">
+      <UniqueIdentifier>{e81e8541-3df3-44e3-8cf0-55d2bf895078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Functions">
+      <UniqueIdentifier>{82bdada4-48a0-4658-a48b-d9231414c88b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Math\Quaternion">
+      <UniqueIdentifier>{500ea12b-1592-4482-81ec-d960bc079046}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -69,6 +96,27 @@
     <ClCompile Include="sorce\MSLib\Mesh\Quad\Quad.cpp">
       <Filter>ソース ファイル\MSLib\Mesh\Quad</Filter>
     </ClCompile>
+    <ClCompile Include="sorce\MSLib\Math\Vector\Vector2.cpp">
+      <Filter>ソース ファイル\MSLib\Math\Vector\Vector2</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Math\Vector\Vector3.cpp">
+      <Filter>ソース ファイル\MSLib\Math\Vector\Vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Math\Vector\Vector4.cpp">
+      <Filter>ソース ファイル\MSLib\Math\Vector\Vector4</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Math\Matrix\Matrix4x4.cpp">
+      <Filter>ソース ファイル\MSLib\Math\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Transform\Transform.cpp">
+      <Filter>ソース ファイル\MSLib\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Math\MathFunctions\MathFunctions.cpp">
+      <Filter>ソース ファイル\MSLib\Math\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Math\Quaternion\Quaternion.cpp">
+      <Filter>ソース ファイル\MSLib\Math\Quaternion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h">
@@ -92,5 +140,43 @@
     <ClInclude Include="sorce\MSLib\Mesh\Quad\Quad.h">
       <Filter>ソース ファイル\MSLib\Mesh\Quad</Filter>
     </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\Vector\Vector2.h">
+      <Filter>ソース ファイル\MSLib\Math\Vector\Vector2</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\Vector\Vector3.h">
+      <Filter>ソース ファイル\MSLib\Math\Vector\Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\Vector\Vector4.h">
+      <Filter>ソース ファイル\MSLib\Math\Vector\Vector4</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\Matrix\Matrix4x4.h">
+      <Filter>ソース ファイル\MSLib\Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Transform\Transform.h">
+      <Filter>ソース ファイル\MSLib\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\Math.h">
+      <Filter>ソース ファイル\MSLib\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\MathFunctions\MathFunctions.h">
+      <Filter>ソース ファイル\MSLib\Math\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\MathDefine.h">
+      <Filter>ソース ファイル\MSLib\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Math\Quaternion\Quaternion.h">
+      <Filter>ソース ファイル\MSLib\Math\Quaternion</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sorce\MSLib\Shader\SimpleVS.hlsl">
+      <Filter>ソース ファイル\MSLib\Shader</Filter>
+    </None>
+    <None Include="sorce\MSLib\Shader\SimplePS.hlsl">
+      <Filter>ソース ファイル\MSLib\Shader</Filter>
+    </None>
+    <None Include="sorce\MSLib\Shader\SimpleDef.inc">
+      <Filter>ソース ファイル\MSLib\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

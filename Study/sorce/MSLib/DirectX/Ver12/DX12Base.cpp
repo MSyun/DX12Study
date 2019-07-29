@@ -3,6 +3,7 @@
 #include <tchar.h> // Debug文字列用
 
 namespace MSLib {
+
 	DX12Base::DX12Base(ApplicationBase* app) :
 		IDXBase(app)
 	{
@@ -113,6 +114,14 @@ namespace MSLib {
 		}
 
 		SettingViewport(&m_Viewport);
+
+		// シザー矩形を設定.
+		m_ScissorRect.left = 0;
+		m_ScissorRect.right = Screen::GetWidth();
+		m_ScissorRect.top = 0;
+		m_ScissorRect.bottom = Screen::GetHeight();
+
+		m_quad.Initialize(m_pDevice);
 
 		return S_OK;
 	}
@@ -377,14 +386,19 @@ namespace MSLib {
 		m_FrameIndex = m_pSwapChain->GetCurrentBackBufferIndex();
 
 		// コマンドアロケータとコマンドリストをリセット
-		m_pCmdAllocator[m_FrameIndex]->Reset();
-		m_pCmdList->Reset(m_pCmdAllocator[m_FrameIndex].Get(), nullptr);
+		HRESULT hr = m_pCmdAllocator[m_FrameIndex]->Reset();
+		hr = m_pCmdList->Reset(m_pCmdAllocator[m_FrameIndex].Get(), nullptr);
 
 		BeginResourceBarrier();
 
 		const float clearColor[] = { 0.1f, 0.25f, 0.5f, 1.0f };
 		ClearRenderTargetView(clearColor);
 		ClearDepthStencilView(1.0f, 0);
+
+		m_quad.Pre(m_pCmdList);
+		m_pCmdList->RSSetViewports(1, &m_Viewport);
+		m_pCmdList->RSSetScissorRects(1, &m_ScissorRect);
+		m_quad.Render(m_pCmdList);
 
 		EndResourceBarrier();
 
@@ -402,6 +416,7 @@ namespace MSLib {
 	}
 
 	HRESULT DX12Base::Release() {
+		m_quad.Release();
 		// コマンドの終了を待機
 		WaitForGpu();
 

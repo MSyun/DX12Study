@@ -5,12 +5,11 @@
 #include <d3d12.h>
 #include <dxgi1_4.h>
 #include <wrl.h>
-
+#include "../../Mesh/Quad/Quad.h"
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "dxgi.lib")
 
 using namespace Microsoft::WRL;
-
 
 // TODO : RenderTargetViewは別クラスで管理・生成したほうがよさそう
 // ゲーム中には変わらんけど数変更は普通にある
@@ -62,6 +61,7 @@ namespace MSLib {
 
 	protected:
 		D3D12_VIEWPORT m_Viewport;
+		D3D12_RECT m_ScissorRect;
 		ComPtr<IDXGISwapChain3> m_pSwapChain;
 		ComPtr<ID3D12Device> m_pDevice;
 		ComPtr<ID3D12Resource> m_pRenderTarget[SwapChainBufferCount];
@@ -77,5 +77,7 @@ namespace MSLib {
 		UINT m_FrameIndex;
 		UINT m_RtvDescriptorSize;
 		UINT m_DsvDescriptorSize;
+
+		Mesh::Quad m_quad;
 	};
 };

@@ -148,18 +148,51 @@
     <ClCompile Include="sorce\MSLib\Application\DXApplication.cpp" />
     <ClCompile Include="sorce\MSLib\DirectX\DXBase.cpp" />
     <ClCompile Include="sorce\MSLib\DirectX\Ver12\DX12Base.cpp" />
+    <ClCompile Include="sorce\MSLib\Math\MathFunctions\MathFunctions.cpp" />
+    <ClCompile Include="sorce\MSLib\Math\Matrix\Matrix4x4.cpp" />
+    <ClCompile Include="sorce\MSLib\Math\Quaternion\Quaternion.cpp" />
+    <ClCompile Include="sorce\MSLib\Math\Vector\Vector2.cpp" />
+    <ClCompile Include="sorce\MSLib\Math\Vector\Vector3.cpp" />
+    <ClCompile Include="sorce\MSLib\Math\Vector\Vector4.cpp" />
     <ClCompile Include="sorce\MSLib\Mesh\Quad\Quad.cpp" />
     <ClCompile Include="sorce\MSLib\Screen\Screen.cpp" />
     <ClCompile Include="sorce\MSLib\Time\Time.cpp" />
+    <ClCompile Include="sorce\MSLib\Transform\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h" />
     <ClInclude Include="sorce\MSLib\Application\DXApplication.h" />
     <ClInclude Include="sorce\MSLib\DirectX\DXBase.h" />
     <ClInclude Include="sorce\MSLib\DirectX\Ver12\DX12Base.h" />
+    <ClInclude Include="sorce\MSLib\Math\Math.h" />
+    <ClInclude Include="sorce\MSLib\Math\MathDefine.h" />
+    <ClInclude Include="sorce\MSLib\Math\MathFunctions\MathFunctions.h" />
+    <ClInclude Include="sorce\MSLib\Math\Matrix\Matrix4x4.h" />
+    <ClInclude Include="sorce\MSLib\Math\Quaternion\Quaternion.h" />
+    <ClInclude Include="sorce\MSLib\Math\Vector\Vector2.h" />
+    <ClInclude Include="sorce\MSLib\Math\Vector\Vector3.h" />
+    <ClInclude Include="sorce\MSLib\Math\Vector\Vector4.h" />
     <ClInclude Include="sorce\MSLib\Mesh\Quad\Quad.h" />
     <ClInclude Include="sorce\MSLib\Screen\Screen.h" />
     <ClInclude Include="sorce\MSLib\Time\Time.h" />
+    <ClInclude Include="sorce\MSLib\Transform\Transform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sorce\MSLib\Shader\SimpleDef.inc">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </EntryPointName>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="sorce\MSLib\Shader\SimplePS.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </EntryPointName>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="sorce\MSLib\Shader\SimpleVS.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </EntryPointName>
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
