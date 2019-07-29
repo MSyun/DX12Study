@@ -2,6 +2,7 @@
 #include "../../Screen/Screen.h"
 #include <tchar.h> // Debug文字列用
 
+
 namespace MSLib {
 
 	DX12Base::DX12Base(ApplicationBase* app) :
@@ -121,7 +122,13 @@ namespace MSLib {
 		m_ScissorRect.top = 0;
 		m_ScissorRect.bottom = Screen::GetHeight();
 
+		m_pCameraManager = new CameraManager;
 		m_quad.Initialize(m_pDevice);
+
+		cam = new Camera;
+		cam->SetName("mainCamera");
+		cam->GetTransform()->LookAt(m_quad.GetTransform());
+		cam->Set();
 
 		return S_OK;
 	}
@@ -416,6 +423,8 @@ namespace MSLib {
 	}
 
 	HRESULT DX12Base::Release() {
+		delete cam;
+		delete m_pCameraManager;
 		m_quad.Release();
 		// コマンドの終了を待機
 		WaitForGpu();

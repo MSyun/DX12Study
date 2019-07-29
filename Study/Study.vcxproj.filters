@@ -70,6 +70,12 @@
     <Filter Include="ソース ファイル\MSLib\Math\Quaternion">
       <UniqueIdentifier>{500ea12b-1592-4482-81ec-d960bc079046}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Camera">
+      <UniqueIdentifier>{03a05bea-81fd-4b4a-b076-e8cab23520c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Singleton">
+      <UniqueIdentifier>{44c48b9c-a3b7-4c46-8e9c-7891831dde76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -116,6 +122,12 @@
     </ClCompile>
     <ClCompile Include="sorce\MSLib\Math\Quaternion\Quaternion.cpp">
       <Filter>ソース ファイル\MSLib\Math\Quaternion</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Camera\Camera.cpp">
+      <Filter>ソース ファイル\MSLib\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Camera\CameraManager.cpp">
+      <Filter>ソース ファイル\MSLib\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +178,15 @@
     </ClInclude>
     <ClInclude Include="sorce\MSLib\Math\Quaternion\Quaternion.h">
       <Filter>ソース ファイル\MSLib\Math\Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Camera\Camera.h">
+      <Filter>ソース ファイル\MSLib\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Camera\CameraManager.h">
+      <Filter>ソース ファイル\MSLib\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Singleton\Singleton.h">
+      <Filter>ソース ファイル\MSLib\Singleton</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

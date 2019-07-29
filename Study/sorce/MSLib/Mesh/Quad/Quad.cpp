@@ -3,7 +3,7 @@
 #pragma comment(lib, "d3dcompiler.lib")
 #include <tchar.h> // Debug文字列用
 #include "../../Screen/Screen.h"
-
+#include "../../Camera/CameraManager.h"
 
 namespace MSLib {
 	namespace Mesh {
@@ -327,42 +327,22 @@ namespace MSLib {
 					OutputDebugString(_T("Failed : Map"));
 					return;
 				}
-
-				// アスペクト比算出
-				auto aspectRatio = static_cast<FLOAT>(Screen::GetWidth()) / static_cast<FLOAT>(Screen::GetHeight());
-
-				// 定数バッファデータの設定
-				Math::MatrixIdentity(&m_ConstantBufferData.World);
-				MatrixLookAtLH(
-					&m_ConstantBufferData.View,
-					&Vector3(0.0f, 0.0f, -5.0f),
-					&(Vector3(0.0f, 0.0f, -5.0f) + Vector3(0.0f, 0.0f, 1.0f) * 2.0f),
-					&Vector3(0.0f, 1.0f, 0.0f));
-				MatrixPerspectiveFovLH(
-					&m_ConstantBufferData.Proj,
-					ToRadian(45.0f),
-					(float)Screen::GetWidth() / (float)Screen::GetHeight(),
-					1.0f,
-					100.0f);
-
-
-				// コピる
-				memcpy(m_pCbvDataBegin, &m_ConstantBufferData, sizeof(m_ConstantBufferData));
 			}
 		}
 
 		void Quad::Pre(ComPtr<ID3D12GraphicsCommandList> pCmdList) {
 			pCmdList->SetPipelineState(m_pPipelineState.Get());
 			pCmdList->SetGraphicsRootSignature(m_signature.Get());
-
+			// 定数バッファデータの設定
+			transform.SetPos(0.0f, 0.0f, 5.0f);
+			m_ConstantBufferData.World = transform.GetWorld();
+			m_ConstantBufferData.View = GetCameraManager()->Get("mainCamera")->GetView();
+			m_ConstantBufferData.Proj = GetCameraManager()->Get("mainCamera")->GetProjection();
+			// コピる
+			memcpy(m_pCbvDataBegin, &m_ConstantBufferData, sizeof(m_ConstantBufferData));
 		}
 
 		void Quad::Render(ComPtr<ID3D12GraphicsCommandList> pCmdList) {
-//			transform.Rotate(0.0f, 1.0f, 0.0f);
-			transform.SetPos(0.0f, 0.0f, 5.0f);
-			m_ConstantBufferData.World = transform.GetWorld();
-			memcpy(m_pCbvDataBegin, &m_ConstantBufferData, sizeof(m_ConstantBufferData));
-
 			pCmdList->SetDescriptorHeaps(1, m_pCbvHeap.GetAddressOf());
 			pCmdList->SetGraphicsRootDescriptorTable(0, m_pCbvHeap->GetGPUDescriptorHandleForHeapStart());
 

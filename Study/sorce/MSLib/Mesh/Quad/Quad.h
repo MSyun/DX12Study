@@ -28,6 +28,8 @@ namespace MSLib {
 			void Render(ComPtr<ID3D12GraphicsCommandList> pCmdList);
 			void Release();
 			void Pre(ComPtr<ID3D12GraphicsCommandList> pCmdList);
+
+			Transform* GetTransform() { return &transform; }
 		private:
 			ComPtr<ID3D12RootSignature> m_signature;
 			ComPtr<ID3D12PipelineState> m_pPipelineState;

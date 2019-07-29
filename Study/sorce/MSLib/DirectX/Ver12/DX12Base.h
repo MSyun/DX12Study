@@ -10,6 +10,7 @@
 #pragma comment(lib, "dxgi.lib")
 
 using namespace Microsoft::WRL;
+#include "../../Camera/CameraManager.h"
 
 // TODO : RenderTargetViewは別クラスで管理・生成したほうがよさそう
 // ゲーム中には変わらんけど数変更は普通にある
@@ -79,5 +80,7 @@ namespace MSLib {
 		UINT m_DsvDescriptorSize;
 
 		Mesh::Quad m_quad;
+		CameraManager* m_pCameraManager;
+		Camera* cam;
 	};
 };
