@@ -330,22 +330,23 @@ namespace MSLib {
 			}
 		}
 
-		void Quad::Pre(ComPtr<ID3D12GraphicsCommandList> pCmdList) {
-			pCmdList->SetPipelineState(m_pPipelineState.Get());
-			pCmdList->SetGraphicsRootSignature(m_signature.Get());
+		void Quad::Pre(ComPtr<ID3D12GraphicsCommandList>& pCmdList) {
 			// 定数バッファデータの設定
 			transform.SetPos(0.0f, 0.0f, 5.0f);
+			transform.Rotate(0.0f, 4.0f, 0.0f);
 			m_ConstantBufferData.World = transform.GetWorld();
 			m_ConstantBufferData.View = GetCameraManager()->Get("mainCamera")->GetView();
 			m_ConstantBufferData.Proj = GetCameraManager()->Get("mainCamera")->GetProjection();
 			// コピる
 			memcpy(m_pCbvDataBegin, &m_ConstantBufferData, sizeof(m_ConstantBufferData));
+
+			pCmdList->SetPipelineState(m_pPipelineState.Get());
+			pCmdList->SetDescriptorHeaps(1, m_pCbvHeap.GetAddressOf());
+			pCmdList->SetGraphicsRootSignature(m_signature.Get());
+			pCmdList->SetGraphicsRootDescriptorTable(0, m_pCbvHeap->GetGPUDescriptorHandleForHeapStart());
 		}
 
-		void Quad::Render(ComPtr<ID3D12GraphicsCommandList> pCmdList) {
-			pCmdList->SetDescriptorHeaps(1, m_pCbvHeap.GetAddressOf());
-			pCmdList->SetGraphicsRootDescriptorTable(0, m_pCbvHeap->GetGPUDescriptorHandleForHeapStart());
-
+		void Quad::Render(ComPtr<ID3D12GraphicsCommandList>& pCmdList) {
 			// プリミティブトポロジーの設定
 			pCmdList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 

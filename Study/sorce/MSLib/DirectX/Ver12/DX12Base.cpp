@@ -398,6 +398,10 @@ namespace MSLib {
 
 		BeginResourceBarrier();
 
+		auto handleRTV = m_pRtvHeap->GetCPUDescriptorHandleForHeapStart();
+		auto handleDSV = m_pDsvHeap->GetCPUDescriptorHandleForHeapStart();
+		handleRTV.ptr += (m_FrameIndex * m_RtvDescriptorSize);
+		m_pCmdList->OMSetRenderTargets(1, &handleRTV, FALSE, &handleDSV);
 		const float clearColor[] = { 0.1f, 0.25f, 0.5f, 1.0f };
 		ClearRenderTargetView(clearColor);
 		ClearDepthStencilView(1.0f, 0);

@@ -25,9 +25,9 @@ namespace MSLib {
 			virtual ~Quad();
 
 			void Initialize(ComPtr<ID3D12Device> pDevice);
-			void Render(ComPtr<ID3D12GraphicsCommandList> pCmdList);
+			void Render(ComPtr<ID3D12GraphicsCommandList>& pCmdList);
 			void Release();
-			void Pre(ComPtr<ID3D12GraphicsCommandList> pCmdList);
+			void Pre(ComPtr<ID3D12GraphicsCommandList>& pCmdList);
 
 			Transform* GetTransform() { return &transform; }
 		private:
