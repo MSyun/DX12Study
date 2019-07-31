@@ -150,6 +150,8 @@
     <ClCompile Include="sorce\MSLib\Camera\CameraManager.cpp" />
     <ClCompile Include="sorce\MSLib\DirectX\DXBase.cpp" />
     <ClCompile Include="sorce\MSLib\DirectX\Ver12\DX12Base.cpp" />
+    <ClCompile Include="sorce\MSLib\Light\Light.cpp" />
+    <ClCompile Include="sorce\MSLib\Light\LightManager.cpp" />
     <ClCompile Include="sorce\MSLib\Math\MathFunctions\MathFunctions.cpp" />
     <ClCompile Include="sorce\MSLib\Math\Matrix\Matrix4x4.cpp" />
     <ClCompile Include="sorce\MSLib\Math\Quaternion\Quaternion.cpp" />
@@ -168,6 +170,8 @@
     <ClInclude Include="sorce\MSLib\Camera\CameraManager.h" />
     <ClInclude Include="sorce\MSLib\DirectX\DXBase.h" />
     <ClInclude Include="sorce\MSLib\DirectX\Ver12\DX12Base.h" />
+    <ClInclude Include="sorce\MSLib\Light\Light.h" />
+    <ClInclude Include="sorce\MSLib\Light\LightManager.h" />
     <ClInclude Include="sorce\MSLib\Math\Math.h" />
     <ClInclude Include="sorce\MSLib\Math\MathDefine.h" />
     <ClInclude Include="sorce\MSLib\Math\MathFunctions\MathFunctions.h" />

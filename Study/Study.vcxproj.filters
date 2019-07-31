@@ -76,6 +76,9 @@
     <Filter Include="ソース ファイル\MSLib\Singleton">
       <UniqueIdentifier>{44c48b9c-a3b7-4c46-8e9c-7891831dde76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Light">
+      <UniqueIdentifier>{3a1ca97a-4b8a-418c-9107-410a7f182e48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -128,6 +131,12 @@
     </ClCompile>
     <ClCompile Include="sorce\MSLib\Camera\CameraManager.cpp">
       <Filter>ソース ファイル\MSLib\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Light\Light.cpp">
+      <Filter>ソース ファイル\MSLib\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Light\LightManager.cpp">
+      <Filter>ソース ファイル\MSLib\Light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +196,12 @@
     </ClInclude>
     <ClInclude Include="sorce\MSLib\Singleton\Singleton.h">
       <Filter>ソース ファイル\MSLib\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Light\Light.h">
+      <Filter>ソース ファイル\MSLib\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Light\LightManager.h">
+      <Filter>ソース ファイル\MSLib\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
