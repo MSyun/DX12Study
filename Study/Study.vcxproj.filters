@@ -79,6 +79,12 @@
     <Filter Include="ソース ファイル\MSLib\Light">
       <UniqueIdentifier>{3a1ca97a-4b8a-418c-9107-410a7f182e48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Archives">
+      <UniqueIdentifier>{25bcb5d2-3a83-47e2-a6b3-879e2a3313a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Archives\IArchivesType">
+      <UniqueIdentifier>{c651dbba-b47a-451e-bf75-24c9c5f619df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -203,6 +209,9 @@
     <ClInclude Include="sorce\MSLib\Light\LightManager.h">
       <Filter>ソース ファイル\MSLib\Light</Filter>
     </ClInclude>
+    <ClInclude Include="sorce\MSLib\Archives\IArchivesType.h">
+      <Filter>ソース ファイル\MSLib\Archives\IArchivesType</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="sorce\MSLib\Shader\SimpleVS.hlsl">
@@ -213,6 +222,9 @@
     </None>
     <None Include="sorce\MSLib\Shader\SimpleDef.inc">
       <Filter>ソース ファイル\MSLib\Shader</Filter>
+    </None>
+    <None Include="sorce\MSLib\Archives\IArchivesType.inl">
+      <Filter>ソース ファイル\MSLib\Archives\IArchivesType</Filter>
     </None>
   </ItemGroup>
 </Project>

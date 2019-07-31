@@ -166,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h" />
     <ClInclude Include="sorce\MSLib\Application\DXApplication.h" />
+    <ClInclude Include="sorce\MSLib\Archives\IArchivesType.h" />
     <ClInclude Include="sorce\MSLib\Camera\Camera.h" />
     <ClInclude Include="sorce\MSLib\Camera\CameraManager.h" />
     <ClInclude Include="sorce\MSLib\DirectX\DXBase.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="sorce\MSLib\Transform\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="sorce\MSLib\Archives\IArchivesType.inl" />
     <None Include="sorce\MSLib\Shader\SimpleDef.inc">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </EntryPointName>
