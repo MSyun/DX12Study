@@ -2,7 +2,6 @@
 #include "../../Screen/Screen.h"
 #include <tchar.h> // Debug•¶Žš—ñ—p
 
-
 namespace MSLib {
 
 	DX12Base::DX12Base(ApplicationBase* app) :

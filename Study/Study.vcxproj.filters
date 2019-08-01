@@ -85,6 +85,24 @@
     <Filter Include="ソース ファイル\MSLib\Archives\IArchivesType">
       <UniqueIdentifier>{c651dbba-b47a-451e-bf75-24c9c5f619df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MSLib\Archives\Mesh">
+      <UniqueIdentifier>{9f1f3a18-9cfc-4ba0-a146-ce3fb37882e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Archives\Shader">
+      <UniqueIdentifier>{8c132ff3-1feb-42b3-bee3-642f8b5ee1b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Archives\Sound">
+      <UniqueIdentifier>{0a5b8e76-508a-40b4-82ca-4867817cd992}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Archives\Texture">
+      <UniqueIdentifier>{25d0cd59-0d07-4fae-a21d-c7e6c7169601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\Utility">
+      <UniqueIdentifier>{e2c0a916-8bd3-4e59-9d28-1154df37062a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\MSLib\String">
+      <UniqueIdentifier>{b511ed34-8cab-4d90-9176-6edf8ea892ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp">
@@ -143,6 +161,21 @@
     </ClCompile>
     <ClCompile Include="sorce\MSLib\Light\LightManager.cpp">
       <Filter>ソース ファイル\MSLib\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesMeshBase.cpp">
+      <Filter>ソース ファイル\MSLib\Archives\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesShaderBase.cpp">
+      <Filter>ソース ファイル\MSLib\Archives\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesSoundBase.cpp">
+      <Filter>ソース ファイル\MSLib\Archives\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesTextureBase.cpp">
+      <Filter>ソース ファイル\MSLib\Archives\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\MSLib\Archives\Archives.cpp">
+      <Filter>ソース ファイル\MSLib\Archives</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +245,27 @@
     <ClInclude Include="sorce\MSLib\Archives\IArchivesType.h">
       <Filter>ソース ファイル\MSLib\Archives\IArchivesType</Filter>
     </ClInclude>
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesMeshBase.h">
+      <Filter>ソース ファイル\MSLib\Archives\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesShaderBase.h">
+      <Filter>ソース ファイル\MSLib\Archives\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesSoundBase.h">
+      <Filter>ソース ファイル\MSLib\Archives\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesTextureBase.h">
+      <Filter>ソース ファイル\MSLib\Archives\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Archives\Archives.h">
+      <Filter>ソース ファイル\MSLib\Archives</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\Utility\SystemUtility.h">
+      <Filter>ソース ファイル\MSLib\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\MSLib\String\String.h">
+      <Filter>ソース ファイル\MSLib\String</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="sorce\MSLib\Shader\SimpleVS.hlsl">
@@ -225,6 +279,9 @@
     </None>
     <None Include="sorce\MSLib\Archives\IArchivesType.inl">
       <Filter>ソース ファイル\MSLib\Archives\IArchivesType</Filter>
+    </None>
+    <None Include="sorce\MSLib\Archives\Archives.inl">
+      <Filter>ソース ファイル\MSLib\Archives</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -2,9 +2,9 @@
 
 
 #include <map>
-#include <string>
+#include "../String/String.h"
 
-
+// NOTE : 命名とパスの変換機的な扱い
 namespace MSLib {
 	namespace ArchivesCollection {
 		template<typename T>
@@ -13,15 +13,15 @@ namespace MSLib {
 			IArchivesType();
 			virtual ~IArchivesType();
 
-			T Get(const std::string& _name);
+			T Get(const string& _name);
 
 		protected:
 			virtual void Create() = 0 {}
 
-			void Add(const std::string& key, T regist);
+			void Add(const string& key, T regist);
 
 		protected:
-			std::map<std::string, T> archives;
+			std::map<string, T> archives;
 		};
 
 #include "IArchivesType.inl"

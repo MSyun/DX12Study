@@ -146,6 +146,14 @@
     <ClCompile Include="sorce\main.cpp" />
     <ClCompile Include="sorce\MSLib\Application\ApplicationBase.cpp" />
     <ClCompile Include="sorce\MSLib\Application\DXApplication.cpp" />
+    <None Include="sorce\MSLib\Archives\Archives.inl">
+      <FileType>Document</FileType>
+    </None>
+    <ClCompile Include="sorce\MSLib\Archives\Archives.cpp" />
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesMeshBase.cpp" />
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesShaderBase.cpp" />
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesSoundBase.cpp" />
+    <ClCompile Include="sorce\MSLib\Archives\ArchivesTextureBase.cpp" />
     <ClCompile Include="sorce\MSLib\Camera\Camera.cpp" />
     <ClCompile Include="sorce\MSLib\Camera\CameraManager.cpp" />
     <ClCompile Include="sorce\MSLib\DirectX\DXBase.cpp" />
@@ -166,6 +174,11 @@
   <ItemGroup>
     <ClInclude Include="sorce\MSLib\Application\ApplicationBase.h" />
     <ClInclude Include="sorce\MSLib\Application\DXApplication.h" />
+    <ClInclude Include="sorce\MSLib\Archives\Archives.h" />
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesMeshBase.h" />
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesShaderBase.h" />
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesSoundBase.h" />
+    <ClInclude Include="sorce\MSLib\Archives\ArchivesTextureBase.h" />
     <ClInclude Include="sorce\MSLib\Archives\IArchivesType.h" />
     <ClInclude Include="sorce\MSLib\Camera\Camera.h" />
     <ClInclude Include="sorce\MSLib\Camera\CameraManager.h" />
@@ -184,8 +197,10 @@
     <ClInclude Include="sorce\MSLib\Mesh\Quad\Quad.h" />
     <ClInclude Include="sorce\MSLib\Screen\Screen.h" />
     <ClInclude Include="sorce\MSLib\Singleton\Singleton.h" />
+    <ClInclude Include="sorce\MSLib\String\String.h" />
     <ClInclude Include="sorce\MSLib\Time\Time.h" />
     <ClInclude Include="sorce\MSLib\Transform\Transform.h" />
+    <ClInclude Include="sorce\MSLib\Utility\SystemUtility.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sorce\MSLib\Archives\IArchivesType.inl" />
